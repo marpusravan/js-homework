@@ -1,0 +1,32 @@
+<div class="col-md-6 col-md-offset-3">
+    <h2>Login</h2>
+    <form name="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]='email' required />
+        </div>
+        <div class="form-group">
+            <label for="firstname">FirstName</label>
+            <input type="firstname" class="form-control" name="firstname" [(ngModel)]='first_name' required />
+        </div>
+        <div class="form-group">
+            <label for="lastname">LastName</label>
+            <input type="lastname" class="form-control" name="lastname" [(ngModel)]='last_name' required />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
+        </div>
+    </form>
+
+    <!--Display error popup-->
+    <div *ngIf="showErrorMessage">
+        <div class='emailError' style='border:1px solid black;height:auto;width:250px'>
+            <p style='color:red' *ngFor="let message of parsedMessage">{{message}}</p>
+        </div>
+    </div>
+
+    <div *ngIf="success">
+        <div class='emailError' style='border:1px solid black;height:auto;width:250px'>
+            <p style='color:green' *ngFor="let message of parsedMessage">{{message}}</p>
+        </div>
+    </div>
